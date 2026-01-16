@@ -13,7 +13,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/adedwi1808/game-catalogue-Core-package.git", from: "1.0.2"),
+        .package(url: "https://github.com/adedwi1808/game-catalogue-Core-package.git", from: "1.0.3"),
         .package(
             url: "https://github.com/onevcat/Kingfisher.git",
             from: "8.6.2"
@@ -22,7 +22,10 @@ let package = Package(
     targets: [
         .target(
             name: "About",
-            dependencies: ["Core", "Kingfisher"]
+            dependencies: [
+                .product(name: "Core", package: "game-catalogue-Core-package"),
+                "Kingfisher"
+            ]
         )
     ]
 )
