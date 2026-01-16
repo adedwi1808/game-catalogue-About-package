@@ -5,19 +5,24 @@ import PackageDescription
 
 let package = Package(
     name: "About",
+    platforms: [.iOS(.v15)],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "About",
             targets: ["About"]
         ),
     ],
-    targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "About"
+    dependencies: [
+        .package(url: "https://github.com/adedwi1808/game-catalogue-Core-package.git", from: "1.0.0"),
+        .package(
+            url: "https://github.com/onevcat/Kingfisher.git",
+            from: "8.0.0"
         ),
-
+    ],
+    targets: [
+        .target(
+            name: "About",
+            dependencies: ["Core", "Kingfisher"]
+        )
     ]
 )
